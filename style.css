@@ -1,0 +1,176 @@
+/* Glassmorphism styling only — HTML and JavaScript remain unchanged */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.28), transparent 28%),
+        radial-gradient(circle at 85% 75%, rgba(128, 95, 255, 0.55), transparent 30%),
+        linear-gradient(135deg, #17152f 0%, #37306c 48%, #6554a4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    width: 230px;
+    height: 230px;
+    top: 7%;
+    left: 12%;
+    background: linear-gradient(135deg, rgba(115, 220, 255, 0.75), rgba(150, 105, 255, 0.35));
+    box-shadow: 0 0 70px rgba(115, 220, 255, 0.22);
+}
+
+body::after {
+    width: 190px;
+    height: 190px;
+    right: 12%;
+    bottom: 6%;
+    background: linear-gradient(135deg, rgba(255, 185, 220, 0.65), rgba(143, 119, 255, 0.4));
+    box-shadow: 0 0 70px rgba(255, 185, 220, 0.2);
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.13);
+    width: 100%;
+    max-width: 400px;
+    padding: 34px 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    box-shadow:
+        0 20px 55px rgba(8, 6, 30, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+}
+
+.form h2 {
+    text-align: center;
+    color: #fff;
+    margin: 0 0 28px;
+    font-size: 27px;
+    font-weight: 700;
+    text-shadow: 0 2px 12px rgba(15, 10, 40, 0.2);
+}
+
+.field {
+    margin-bottom: 19px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.96);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.field input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: right;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.field input::placeholder {
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.field input:focus {
+    border-color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.09);
+}
+
+.field small {
+    display: block;
+    margin-top: 6px;
+    min-height: 16px;
+    color: #ffd0d5;
+    font-size: 11px;
+}
+
+.field.success input {
+    border-color: #79f2c0;
+    box-shadow: 0 0 0 3px rgba(121, 242, 192, 0.1);
+}
+
+.field.error input {
+    border-color: #ff8e9b;
+    box-shadow: 0 0 0 3px rgba(255, 142, 155, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    background: linear-gradient(135deg, #fff 0%, #e5ddff 100%);
+    color: #393064;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 13px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(15, 10, 45, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(15, 10, 45, 0.28);
+    filter: brightness(1.04);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 18px;
+    }
+
+    body::before {
+        width: 150px;
+        height: 150px;
+        left: -35px;
+    }
+
+    body::after {
+        width: 140px;
+        height: 140px;
+        right: -35px;
+    }
+
+    .form {
+        padding: 28px 22px;
+        border-radius: 20px;
+    }
+}
